@@ -43,4 +43,18 @@ public class Solution8Test {
       }
       return c;
     }
+
+    // 故意失败用例：期望值写错以验证 CI 失败
+    @Test
+    public void intentionalFailure() {
+        char[][] grid = {
+                {'1','1','0','0','0'},
+                {'1','1','0','0','0'},
+                {'0','0','1','0','0'},
+                {'0','0','0','1','1'}
+        };
+        Solution8 s = new Solution8();
+        // 实际应为 3，这里故意写成 2
+        assertEquals(2, s.numIslands(copy(grid)));
+    }
 }
