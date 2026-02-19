@@ -44,9 +44,9 @@ public class Solution8Test {
       return c;
     }
 
-    // 故意失败用例：期望值写错以验证 CI 失败
+    // 修复：恢复正确期望，确保 CI 通过
     @Test
-    public void intentionalFailure() {
+    public void intentionalFailure_fixed() {
         char[][] grid = {
                 {'1','1','0','0','0'},
                 {'1','1','0','0','0'},
@@ -54,7 +54,6 @@ public class Solution8Test {
                 {'0','0','0','1','1'}
         };
         Solution8 s = new Solution8();
-        // 实际应为 3，这里故意写成 2
-        assertEquals(2, s.numIslands(copy(grid)));
+        assertEquals(3, s.numIslands(copy(grid)));
     }
 }
